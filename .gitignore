@@ -1,0 +1,5 @@
+.vim
+.venv
+.direnv
+__pycache__
+src/view/ui/*.py
