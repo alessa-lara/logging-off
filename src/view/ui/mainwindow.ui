@@ -23,6 +23,9 @@
         <verstretch>0</verstretch>
        </sizepolicy>
       </property>
+      <property name="frameShape">
+       <enum>QFrame::Shape::NoFrame</enum>
+      </property>
       <property name="sizeAdjustPolicy">
        <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustIgnored</enum>
       </property>
@@ -35,10 +38,20 @@
          <x>0</x>
          <y>0</y>
          <width>274</width>
-         <height>318</height>
+         <height>320</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>Search Your Posts!</string>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignCenter</set>
+          </property>
+         </widget>
+        </item>
         <item>
          <widget class="QFrame" name="date_search_frame">
           <property name="frameShape">
@@ -77,6 +90,9 @@
     </item>
     <item>
      <widget class="QScrollArea" name="main">
+      <property name="frameShape">
+       <enum>QFrame::Shape::NoFrame</enum>
+      </property>
       <property name="widgetResizable">
        <bool>true</bool>
       </property>
@@ -85,8 +101,8 @@
         <rect>
          <x>0</x>
          <y>0</y>
-         <width>298</width>
-         <height>304</height>
+         <width>296</width>
+         <height>325</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -101,7 +117,11 @@
             </widget>
            </item>
            <item>
-            <widget class="QTextEdit" name="input_post"/>
+            <widget class="QTextEdit" name="input_post">
+             <property name="placeholderText">
+              <string>Write about your day!</string>
+             </property>
+            </widget>
            </item>
            <item>
             <widget class="QFrame" name="frame_2">
@@ -112,22 +132,37 @@
               </sizepolicy>
              </property>
              <property name="frameShape">
-              <enum>QFrame::Shape::StyledPanel</enum>
+              <enum>QFrame::Shape::NoFrame</enum>
              </property>
              <property name="frameShadow">
               <enum>QFrame::Shadow::Raised</enum>
              </property>
+             <property name="lineWidth">
+              <number>1</number>
+             </property>
              <layout class="QHBoxLayout" name="horizontalLayout_3">
               <item>
                <widget class="QPlainTextEdit" name="input_tags">
-                <property name="sizePolicy">
-                 <sizepolicy hsizetype="Maximum" vsizetype="Ignored">
-                  <horstretch>0</horstretch>
-                  <verstretch>0</verstretch>
-                 </sizepolicy>
+                <property name="inputMethodHints">
+                 <set>Qt::InputMethodHint::ImhLowercaseOnly|Qt::InputMethodHint::ImhMultiLine</set>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::Shape::StyledPanel</enum>
+                </property>
+                <property name="verticalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="horizontalScrollBarPolicy">
+                 <enum>Qt::ScrollBarPolicy::ScrollBarAlwaysOff</enum>
+                </property>
+                <property name="sizeAdjustPolicy">
+                 <enum>QAbstractScrollArea::SizeAdjustPolicy::AdjustToContents</enum>
                 </property>
                 <property name="plainText">
                  <string/>
+                </property>
+                <property name="placeholderText">
+                 <string>write &quot;,&quot; separated tags to quickly filter your posts later!</string>
                 </property>
                </widget>
               </item>
