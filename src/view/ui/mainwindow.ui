@@ -2,6 +2,14 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>682</width>
+    <height>395</height>
+   </rect>
+  </property>
   <property name="windowTitle">
    <string>Logging Off</string>
   </property>
@@ -114,8 +122,8 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>0</y>
-         <width>298</width>
+         <y>-4</y>
+         <width>278</width>
          <height>403</height>
         </rect>
        </property>
@@ -134,7 +142,7 @@
             <height>0</height>
            </size>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_3" stretch="0,0,0,0">
+          <layout class="QVBoxLayout" name="layout_frame_tags_2" stretch="0,0,0,0">
            <item>
             <widget class="QLabel" name="label_write">
              <property name="text">
@@ -181,7 +189,7 @@
              <property name="frameShadow">
               <enum>QFrame::Shadow::Raised</enum>
              </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_4">
+             <layout class="QHBoxLayout" name="layout_frame_tags">
               <item>
                <widget class="QLabel" name="label_tags">
                 <property name="sizePolicy">
@@ -198,7 +206,7 @@
               <item>
                <widget class="QPushButton" name="button_tag_add">
                 <property name="sizePolicy">
-                 <sizepolicy hsizetype="Ignored" vsizetype="Fixed">
+                 <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
                   <horstretch>0</horstretch>
                   <verstretch>0</verstretch>
                  </sizepolicy>
@@ -207,6 +215,12 @@
                  <size>
                   <width>40</width>
                   <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>40</width>
+                  <height>16777215</height>
                  </size>
                 </property>
                 <property name="text">
@@ -318,7 +332,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>702</width>
+     <width>682</width>
      <height>19</height>
     </rect>
    </property>
