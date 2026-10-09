@@ -29,12 +29,7 @@ class Post_Delegate(QStyledItemDelegate):
         top = QRect(r.left(), r.top(), r.width(), fm.height())
         _ = painter.drawText(
                 top,
-                Qt.AlignmentFlag.AlignLeft  | Qt.AlignmentFlag.AlignVCenter,
-                str(data.id)
-            )
-        _ = painter.drawText(
-                top,
-                Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter,
+                Qt.AlignmentFlag.AlignLeft | Qt.AlignmentFlag.AlignVCenter,
                 data.date
             )
 

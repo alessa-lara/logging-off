@@ -21,3 +21,10 @@ class Post_Model(QAbstractListModel):
     def data(self, index: QModelIndex, role: int = 0) -> Post | None:
         if role == Qt.ItemDataRole.UserRole:
             return self._posts[index.row()]
+
+    def add(self, post: Post):
+        posts_len = len(self._posts)
+        self.beginInsertRows(QModelIndex(), posts_len, posts_len)
+        self._posts.append(post)
+        self.endInsertRows()
+

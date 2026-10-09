@@ -1,11 +1,14 @@
 from PyQt6 import QtWidgets
 
+from controller.controller import Controller
 from delegate.post_delegate import Post_Delegate
 from model.post_model import Post_Model
 from .ui.mainwindow import Ui_MainWindow
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
-    def __init__(self, post_model: Post_Model, post_delegate: Post_Delegate):
+    _controller: Controller
+
+    def __init__(self, controller: Controller, post_model: Post_Model, post_delegate: Post_Delegate):
         super().__init__()
         self.setupUi(self)
 
@@ -13,6 +16,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         _ = self.button_send.clicked.connect(self.send)
         _ = self.button_attach.clicked.connect(self.attach)
 
+        self._controller = controller
         self.list_posts.setModel(post_model)
         self.list_posts.setItemDelegate(post_delegate)
 
@@ -84,4 +88,6 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         return file[0]
 
     def send(self) -> None:
-        pass
+        tags = self.get_tags()
+        text = self.get_post_text()
+        self._controller.process(text, tags, [])
