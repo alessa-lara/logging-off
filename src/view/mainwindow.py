@@ -6,21 +6,21 @@ from model.post_model import Post_Model
 from .ui.mainwindow import Ui_MainWindow
 
 class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
-    _controller: Controller
+    __controller: Controller
 
     def __init__(self, controller: Controller, post_model: Post_Model, post_delegate: Post_Delegate):
         super().__init__()
         self.setupUi(self)
 
-        _ = self.button_tag_add.clicked.connect(self.add_tag)
-        _ = self.button_send.clicked.connect(self.send)
-        _ = self.button_attach.clicked.connect(self.attach)
+        _ = self.button_tag_add.clicked.connect(self.__add_tag)
+        _ = self.button_send.clicked.connect(self.__send)
+        _ = self.button_attach.clicked.connect(self.__attach)
 
-        self._controller = controller
+        self.__controller = controller
         self.list_posts.setModel(post_model)
         self.list_posts.setItemDelegate(post_delegate)
 
-    def edit_tag(self, button: QtWidgets.QPushButton):
+    def __edit_tag(self, button: QtWidgets.QPushButton):
         layout = self.layout_frame_tags
         index: int = layout.indexOf(button)
         button.hide()
@@ -39,7 +39,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         button.show()
 
-    def add_tag(self):
+    def __add_tag(self):
         layout = self.layout_frame_tags
         button_tag_add = self.button_tag_add
 
@@ -54,13 +54,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         text: str = line_edit.text()
 
         button = QtWidgets.QPushButton(text=text)
-        _ = button.clicked.connect(lambda: self.edit_tag(button))
+        _ = button.clicked.connect(lambda: self.__edit_tag(button))
         self.layout_frame_tags.addWidget(button)
         line_edit.deleteLater()
 
         self.button_tag_add.show()
 
-    def get_tags(self) -> list[str]:
+    def __get_tags(self) -> list[str]:
         tags: list[str] = []
 
         for button in self.frame_tags.children():
@@ -71,13 +71,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         return tags
 
-    def get_post_text(self) -> str:
+    def __get_post_text(self) -> str:
         post_text: str = self.input_post.toMarkdown()
         return post_text
 
     # the simplest way to attach a file to a post is saving the file location and then, later, showing the file
     # not the most interesting or permanent way... but it works
-    def attach(self) -> str:
+    def __attach(self) -> str:
         dialog = QtWidgets.QFileDialog()
         file: tuple[str, str] = dialog.getOpenFileName(
             self,
@@ -87,7 +87,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         return file[0]
 
-    def send(self) -> None:
-        tags = self.get_tags()
-        text = self.get_post_text()
-        self._controller.process(text, tags, [])
+    def __send(self) -> None:
+        tags = self.__get_tags()
+        text = self.__get_post_text()
+        self.__controller.process(text, tags, [])

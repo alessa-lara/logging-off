@@ -11,6 +11,8 @@ if DEBUG:
     posts: list[Post] = [
             Post("2022-04-22", 2020, "Hello human", ["tag1", "tag2"], ["home/lara"])
         ]
+else:
+    posts = []
 
 
 def main():
