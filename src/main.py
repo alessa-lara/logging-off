@@ -1,6 +1,8 @@
+import os
 from PyQt6.QtWidgets import QApplication
 
 from controller.controller import Controller
+from database.peewee import Sqlite_Database
 from delegate.post_delegate import Post_Delegate
 from model.post import Post
 from model.post_model import Post_Model
@@ -22,6 +24,10 @@ def main():
     post_delegate = Post_Delegate()
     control = Controller(post_model)
     main_window = MainWindow(control, post_model, post_delegate)
+
+    ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+    db = Sqlite_Database(ROOT_DIR)
 
     main_window.show()
     _ = app.exec()

@@ -7,11 +7,24 @@ name = "logging-off"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
+    { name = "peewee" },
     { name = "pyqt6" },
 ]
 
 [package.metadata]
-requires-dist = [{ name = "pyqt6", specifier = ">=6.11.0" }]
+requires-dist = [
+    { name = "peewee", specifier = ">=4.5.3" },
+    { name = "pyqt6", specifier = ">=6.11.0" },
+]
+
+[[package]]
+name = "peewee"
+version = "4.5.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/6f/85/8142c26b9942e2993fdcd9163089a8531ac255aecef1ca4cc1b611e8d193/peewee-4.5.3.tar.gz", hash = "sha256:434576afaf806428a01f84af74c42fde59372c4f6a6eba26d9b5372113344a8a", size = 821823, upload-time = "2026-10-07T11:49:35.855Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/76/e3/1f3847b62db730a58c6f6d689c060d7228721f3a66e612a27cda297e875a/peewee-4.5.3-py3-none-any.whl", hash = "sha256:4c5db9d2a3c4ae9a5725b229c29af51dbd063193f3a6c03b837974a90e44548c", size = 194532, upload-time = "2026-10-07T11:49:34.153Z" },
+]
 
 [[package]]
 name = "pyqt6"
